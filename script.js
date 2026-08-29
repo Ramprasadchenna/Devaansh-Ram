@@ -1,17 +1,17 @@
 const MONTHS = [
-  { idx: 0, label: "March 2026" },
-  { idx: 1, label: "April 2026" },
-  { idx: 2, label: "May 2026" },
-  { idx: 3, label: "June 2026" },
-  { idx: 4, label: "July 2026" },
-  { idx: 5, label: "August 2026" },
-  { idx: 6, label: "September 2026" },
-  { idx: 7, label: "October 2026" },
-  { idx: 8, label: "November 2026" },
-  { idx: 9, label: "December 2026" },
-  { idx: 10, label: "January 2027" },
-  { idx: 11, label: "February 2027" },
-  { idx: 12, label: "March 2027" },
+  { idx: 0, label: "March 2026", photo: null },
+  { idx: 1, label: "April 2026", photo: "images/month-01.jpg" },
+  { idx: 2, label: "May 2026", photo: "images/month-02.jpg" },
+  { idx: 3, label: "June 2026", photo: "images/month-03.jpg" },
+  { idx: 4, label: "July 2026", photo: "images/month-04.jpg" },
+  { idx: 5, label: "August 2026", photo: "images/month-05.jpg" },
+  { idx: 6, label: "September 2026", photo: null },
+  { idx: 7, label: "October 2026", photo: null },
+  { idx: 8, label: "November 2026", photo: null },
+  { idx: 9, label: "December 2026", photo: null },
+  { idx: 10, label: "January 2027", photo: null },
+  { idx: 11, label: "February 2027", photo: null },
+  { idx: 12, label: "March 2027", photo: null },
 ];
 
 const STORAGE_KEY = "devaansh-month-notes";
@@ -36,6 +36,7 @@ const modalNotes = document.getElementById("modalNotes");
 const modalSave = document.getElementById("modalSave");
 const modalClose = document.getElementById("modalClose");
 const modalSavedMsg = document.getElementById("modalSavedMsg");
+const modalPhotoSlot = document.getElementById("modalPhotoSlot");
 
 let activeMonth = null;
 let notes = loadNotes();
@@ -44,7 +45,11 @@ function renderTiles() {
   strip.innerHTML = "";
   MONTHS.forEach((m) => {
     const tile = document.createElement("button");
-    tile.className = "month-tile" + (notes[m.idx] ? " has-note" : "");
+    const hasPhoto = !!m.photo;
+    tile.className = "month-tile" + (notes[m.idx] ? " has-note" : "") + (hasPhoto ? " has-photo" : "");
+    if (hasPhoto) {
+      tile.style.backgroundImage = `linear-gradient(180deg, rgba(36,26,18,0.05), rgba(36,26,18,0.55)), url('${m.photo}')`;
+    }
     tile.innerHTML = `
       <span class="m-filled-dot"></span>
       <span class="m-index">${String(m.idx).padStart(2, "0")}</span>
@@ -61,6 +66,13 @@ function openModal(month) {
   modalTitle.textContent = month.label;
   modalNotes.value = notes[month.idx] || "";
   modalSavedMsg.classList.remove("show");
+
+  if (month.photo) {
+    modalPhotoSlot.innerHTML = `<img src="${month.photo}" alt="${month.label} photo" class="modal-photo-img">`;
+  } else {
+    modalPhotoSlot.innerHTML = `<span>No photo added yet</span>`;
+  }
+
   backdrop.classList.add("open");
 }
 
