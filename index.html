@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devaansh Ram — First Year Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain-overlay"></div>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <div class="nav-mark">देवांश</div>
+  <div class="nav-name">Devaansh&nbsp;Ram</div>
+  <div class="nav-links">
+    <a href="#birth">Birth</a>
+    <a href="#annaprasana">Annaprasana</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#vaccines">Vaccines</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <p class="eyebrow">A first year, kept</p>
+    <h1 class="hero-title">Devaansh Ram</h1>
+    <p class="hero-sub">Born under Ashlesha Nakshatram, Cancer rashi<br>Bangalore, March 2026</p>
+
+    <div class="kundli">
+      <svg viewBox="0 0 400 400" class="kundli-svg" aria-hidden="true">
+        <circle cx="200" cy="200" r="188" class="k-ring k-ring-outer"/>
+        <circle cx="200" cy="200" r="150" class="k-ring"/>
+        <circle cx="200" cy="200" r="70" class="k-ring k-ring-inner"/>
+        <!-- radiating ticks -->
+        <g class="k-ticks"></g>
+        <!-- crab motif for cancer, drawn simply -->
+        <g class="crab" transform="translate(200,200)">
+          <path d="M -34 6 Q -34 -22 0 -22 Q 34 -22 34 6 Q 34 26 0 26 Q -34 26 -34 6 Z" class="crab-body"/>
+          <path d="M -30 2 L -52 -10 M -30 10 L -54 14 M 30 2 L 52 -10 M 30 10 L 54 14" class="crab-legs"/>
+          <circle cx="-12" cy="-4" r="3.4" class="crab-eye"/>
+          <circle cx="12" cy="-4" r="3.4" class="crab-eye"/>
+        </g>
+        <text text-anchor="middle" x="200" y="130" class="k-label k-label-top">ASHLESHA NAKSHATRAM</text>
+        <text text-anchor="middle" x="200" y="286" class="k-label k-label-bottom">CANCER RASHI</text>
+      </svg>
+    </div>
+
+    <a class="scroll-cue" href="#birth" aria-label="Scroll to birth details">
+      <span></span>
+    </a>
+  </div>
+</header>
+
+<!-- ================= BIRTH DETAILS ================= -->
+<section class="section birth" id="birth">
+  <div class="section-head">
+    <p class="eyebrow">01 — Arrival</p>
+    <h2>Birth Details</h2>
+  </div>
+
+  <div class="birth-grid">
+    <div class="birth-card certificate">
+      <p class="cert-label">Birth Certificate Registration No.</p>
+      <p class="cert-number">613058/T/B/2026/000579</p>
+    </div>
+
+    <div class="birth-card">
+      <p class="field-label">Date &amp; Time</p>
+      <p class="field-value">March 1, 2026<br><span class="muted">7:10:20 PM</span></p>
+    </div>
+
+    <div class="birth-card">
+      <p class="field-label">Nakshatram</p>
+      <p class="field-value">Ashlesha</p>
+    </div>
+
+    <div class="birth-card">
+      <p class="field-label">Rashi</p>
+      <p class="field-value">Cancer</p>
+    </div>
+
+    <div class="birth-card wide">
+      <p class="field-label">Place of Birth</p>
+      <p class="field-value">Motherhood Hospital, Electronic City Phase 1, Bangalore</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ANNAPRASANA ================= -->
+<section class="section annaprasana" id="annaprasana">
+  <div class="section-head">
+    <p class="eyebrow">02 — Annaprasana</p>
+    <h2>The First Rice</h2>
+  </div>
+
+  <div class="anna-grid">
+    <div class="anna-card">
+      <span class="anna-tag">Rameshwaram Temple, PDTR</span>
+      <p class="anna-date">August 17, 2026</p>
+      <p class="anna-desc">First food offered at the temple, marking Devaansh's Annaprasana ceremony.</p>
+    </div>
+    <div class="anna-card">
+      <span class="anna-tag">Photoshoot</span>
+      <p class="anna-date">August 23, 2026</p>
+      <p class="anna-desc">Ceremony photographs, taken to mark the occasion.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIMELINE ================= -->
+<section class="section timeline" id="timeline">
+  <div class="section-head">
+    <p class="eyebrow">03 — The First Year</p>
+    <h2>Month by Month</h2>
+    <p class="section-note">Tap a month to open it — add photos and milestones as they happen.</p>
+  </div>
+
+  <div class="month-strip" id="monthStrip">
+    <!-- populated by JS -->
+  </div>
+</section>
+
+<!-- month detail modal -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <p class="modal-eyebrow" id="modalEyebrow"></p>
+    <h3 id="modalTitle"></h3>
+    <div class="modal-photo-slot" id="modalPhotoSlot">
+      <span>No photo added yet</span>
+    </div>
+    <label class="modal-field-label" for="modalNotes">Milestones &amp; notes</label>
+    <textarea id="modalNotes" class="modal-textarea" placeholder="Height, weight, first smile, new sounds, whatever you want to remember..."></textarea>
+    <button class="modal-save" id="modalSave">Save</button>
+    <p class="modal-saved-msg" id="modalSavedMsg">Saved to this browser</p>
+  </div>
+</div>
+
+<!-- ================= VACCINES ================= -->
+<section class="section vaccines" id="vaccines">
+  <div class="section-head">
+    <p class="eyebrow">04 — Care</p>
+    <h2>Vaccine Schedule</h2>
+    <p class="section-note">Kept separately in the family drive — linked here for quick access.</p>
+  </div>
+
+  <a class="vax-link" href="https://docs.google.com/document/d/1L4IL61EIKQCkp88RA3eDI0mOKyV7FiDSRNYnjwshbuw/edit?usp=drivesdk" target="_blank" rel="noopener">
+    <span class="vax-icon">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h11l5 5v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M14 4v5h5"/></svg>
+    </span>
+    <span class="vax-text">
+      <span class="vax-title">Open vaccine record</span>
+      <span class="vax-sub">Google Doc — schedule &amp; dates</span>
+    </span>
+    <span class="vax-arrow">→</span>
+  </a>
+</section>
+
+<footer class="site-footer">
+  <p>Devaansh Ram · First Year Journal · started March 2026</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
